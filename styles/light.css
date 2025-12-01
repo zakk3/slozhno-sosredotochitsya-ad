@@ -4,7 +4,7 @@
   переключая тему
 */
 
-:root.theme-light {
+.page.theme_light {
   --background-image: url("../images/cover-image-light.png");
   --accent-color: #ff8dcb;
   --accent-color-opacity: #32312d66;
@@ -15,19 +15,11 @@
   --header2-color: var(--text-color);
   --header3-color: var(--text-color);
   --is-light: hidden;
-}
 
-.theme-light .layout {
-  --background-image: url("../images/cover-image-light.png");
-  --accent-color: #ff8dcb;
-  --accent-color-opacity: #32312d66;
-  --text-color: #353430;
-  --decoration-color: var(--text-color);
-  --background-color: #fff1f7;
-  --header1-color: #ffc2e6;
-  --header2-color: var(--text-color);
-  --header3-color: var(--text-color);
-  --is-light: hidden;
+  /* сохраните этот селектор в приведённом виде.
+    Так стили написанные ниже будут иметь больший вес,
+    чем стили в медиазапросе предпочтений пользователя
+  */
 }
 
 @media (prefers-color-scheme: light) {
@@ -42,5 +34,5 @@
     --header2-color: var(--text-color);
     --header3-color: var(--text-color);
     --is-light: hidden;
-  }
+    }
 }
