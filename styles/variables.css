@@ -1,7 +1,12 @@
+/*
+  Переменные для вашего проекта
+  и их переопределение под различные устройства
+*/
+
 :root {
   --background-image: url("../images/cover-image-dark.png");
   --accent-color: #ff0070;
-  --accent-color-opacity: #ff007066;
+  --accent-color-opacity: #ff0070;
   --text-color: #f1b2ce;
   --decoration-color: var(--accent-color);
   --background-color: #000028;
@@ -18,4 +23,5 @@
   --font-style: normal;
   --is-light: visible;
 }
+
 
