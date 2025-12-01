@@ -1,10 +1,17 @@
-.layout {
-  font-family: var(--font-family);
-  background-color: var(--background-color);
- 
+/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.frame-decor::before {
+.page {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+}
+
+.decorated-zone::before {
   align-self: flex-start;
   justify-self: end;
   position: absolute;
@@ -15,7 +22,7 @@
   border-inline-end: 1px solid var(--decoration-color);
 }
 
-.frame-decor::after {
+.decorated-zone::after {
   justify-self: start;
   align-self: flex-end;
   position: absolute;
@@ -26,19 +33,19 @@
   border-inline-start: 1px solid var(--decoration-color);
 }
 
-.inline-link {
+.text-link {
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.inline-link:focus-visible {
+.text-link:focus-visible {
   outline: none;
 }
 
-/* HEADER*/
+/* HEADER STYLES */
 
-.site-header {
-  height: 100vh;
+.header {
+  min-height: 100vh;
   padding: 10px;
   background-image: var(--background-image);
   background-size: cover;
@@ -51,7 +58,7 @@
   align-items: center;
 }
 
-.site-header__status-indicator {
+.header__decoration-dark {
   align-self: flex-start;
   justify-self: end;
   position: absolute;
@@ -67,7 +74,7 @@
   line-height: 25px;
 }
 
-.site-header__status-indicator::after {
+.header__decoration-dark::after {
   align-self: center;
   content: "";
   inline-size: 9px;
@@ -78,17 +85,17 @@
   filter: drop-shadow(0px 0px 4px var(--accent-color));
 }
 
-.theme-switcher {
+.header__theme-menu {
   grid-column: 1 / 3;
   justify-self: end;
 }
 
-.theme-switcher__list {
+.header__theme-menu-list {
   display: grid;
   gap: 10px;
 }
 
-.theme-switcher__button {
+.header__theme-menu-button {
   padding: 4px 13px;
   background-color: inherit;
   border: none;
@@ -99,29 +106,29 @@
   cursor: pointer;
 }
 
-.theme-switcher__button_active {
+.header__theme-menu-button_active {
   pointer-events: none;
   border: 1px solid var(--decoration-color);
 }
 
-.site-header__title {
+.header__title {
   grid-column: 1 / 3;
   justify-self: start;
   color: var(--header1-color);
   text-shadow: 4px 4px 0 var(--accent-color);
-  font-size: 116px;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: var(--small-line-height);
 }
 
-.site-header__subtitle {
+.header__text {
   grid-column: 1 / 3;
   justify-content: end;
   display: inline-block;
 }
 
-/* MAIN */
+/* MAIN STYLES */
 
-.content {
+.main {
   margin-block: 40px;
   padding-inline: 10px;
   display: grid;
@@ -130,14 +137,14 @@
   row-gap: 50px;
 }
 
-.section-block {
+.topic {
   grid-column: 1 / 4;
   grid-template-columns: 1fr 1fr 1fr;
   display: grid;
   gap: 20px;
 }
 
-.section-block__title {
+.topic__title {
   grid-column: 1 / 4;
   color: var(--header2-color);
   font-size: var(--regular-font-size);
@@ -145,7 +152,7 @@
   line-height: var(--large-line-height);
 }
 
-.section-block__card {
+.topic__card {
   grid-column: 1 / 4;
   display: grid;
   grid-template-rows: min-content auto;
@@ -153,7 +160,7 @@
   row-gap: 10px;
 }
 
-.highlight-title {
+.title_decor {
   grid-column: 1 / 4;
   color: var(--header3-color);
   background-color: var(--accent-color);
@@ -162,14 +169,14 @@
   line-height: var(--large-line-height);
 }
 
-.section-block__text {
+.card__text {
   grid-column: 1 / 4;
   color: var(--text-color);
   font-size: var(--regular-font-size);
   line-height: var(--large-line-height);
 }
 
-.gallery-section {
+.topic-pictures {
   grid-column: 1 / 4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -177,194 +184,187 @@
   gap: 10px;
 }
 
-.gallery-section__image {
+.topic__image {
   grid-column: 1 / 4;
   width: 100%;
   height: 100%;
 }
 
-.highlight-title_thin {
+
+.thin-title {
   font-weight: var(--regular-font-weight);
 }
 
-/* FOOTER */
+/* FOOTER STYLES */
 
-.site-footer {
+
+ footer {
   padding: 10px;
-  block-size: 100vh;
+  min-height: 100vh;  /* Better than height for flexibility */
   display: grid;
+  box-sizing: border-box;
 }
 
-.site-footer__title {
+
+.footer__title {
   justify-self: center;
   align-self: center;
   color: var(--header1-color);
   text-shadow: 2px 2px 0 var(--accent-color);
-  font-size: 116px;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: var(--title-line-height);
 }
 
-@media (width >= 768px) {
-  .site-header {
+@media (width >= 768px){
+  .header {
     padding: 20px;
   }
 
-  .site-header__title {
+  .header__title {
     position: relative;
     margin-inline-start: -20px;
-    font-size: 157px;
-    width: 759px;
-    height: 130px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .site-header__subtitle {
+  .header__text {
     grid-column: 2 / 3;
-    width: 491px;
-    height: 71px;
-    position: absolute;
-    top: 563px;
-    left: 513px;
   }
 
-  .content {
+  .main {
     margin-block: 60px;
     padding-inline: 20px;
     row-gap: 80px;
   }
 
-  .section-block {
+  .topic {
     grid-template-columns: 1fr 2fr;
   }
 
-  .section-block__title {
+  .topic__title {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
   }
 
-  .section-block__card {
+  .topic__card {
     grid-column: 2 / 3;
   }
 
-  .section-block:nth-child(2) .section-block__card{
+  .topic:nth-child(2) .topic__card{
     grid-column: 1 / 4;
   }
 
-  .section-block > .highlight-title{
+  .topic > .title_decor{
     grid-column: 2 / 3;
   }
 
-  .gallery-section {
+  .topic-pictures {
     gap: 20px;
   }
 
-  .gallery-section__image {
+  .topic__image {
     object-fit: cover;
     object-position: center;
   }
 
-  .gallery-section__image:nth-child(2) {
+  .topic__image:nth-child(2) {
     grid-column: 1 / 3;
   }
 
-  .gallery-section__image:nth-child(3) {
+  .topic__image:nth-child(3) {
     grid-column: 3 / 4;
     grid-row: 2 / 4;
   }
 
-  .gallery-section__image:nth-child(4) {
+  .topic__image:nth-child(4) {
     grid-column: 1 / 2;
     grid-row: 3 / 5;
   }
 
-  .gallery-section__image:nth-child(5) {
+  .topic__image:nth-child(5) {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
   }
 
-  .gallery-section__image:nth-child(6) {
+  .topic__image:nth-child(6) {
     grid-column: 2 / 4;
     grid-row: 4 / 5;
   }
 
-  .site-footer {
+  .footer {
     padding: 20px;
   }
 }
 
 @media (width >= 1024px) {
-  .inline-link:hover {
+  .text-link:hover {
     border-bottom: 1px solid var(--text-color);
   }
 
-  .inline-link:focus {
+  .text-link:focus {
     outline: none;
   }
 
-  .inline-link:focus-visible {
+  .text-link:focus-visible {
     outline: 1px solid var(--text-color);
     outline-offset: -1px;
   }
 
-  .theme-switcher {
+  .header__theme-menu {
     align-self: start;
     justify-self: center;
-    width:230px;
-    height: 26px;
   }
 
-  .theme-switcher__list {
+  .header__theme-menu-list {
     grid-auto-flow: column;
-    width:230px;
-    height: 26px;
   }
 
-  .theme-switcher__button:hover:not(.theme-switcher__button_active) {
+  .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
     border: 1px solid var(--accent-color-opacity);
   }
 
-  .theme-switcher__button:focus {
+  .header__theme-menu-button:focus {
     outline: none;
   }
 
-  .theme-switcher__button:focus-visible {
+  .header__theme-menu-button:focus-visible {
     border: none;
     outline: none;
     border-bottom: 1px solid var(--decoration-color);
   }
 
-  .site-header__title {
-    font-size: 157px;
-    width: 759px;
-    height: 130px;
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .section-block {
+  .topic {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .section-block__card {
+
+  .topic__card {
     grid-column: 2 / 4;
   }
 
-  .section-block:nth-child(2) {
+  .topic:nth-child(2) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
+
   }
 
-  .section-block:nth-child(2) .section-block__title {
+  .topic:nth-child(2) .topic__title {
     grid-row: span 1;
   }
 
-  .section-block:nth-child(2) .section-block__card{
+  .topic:nth-child(2) .topic__card{
     grid-row: 2 / 3 ;
     grid-column: span 1;
   }
 
-  .section-block > .highlight-title{
+  .topic > .title_decor{
     grid-column: 2 / 4;
   }
 
-  .site-footer__title {
-    font-size: 157px;
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
