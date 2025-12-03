@@ -1,6 +1,6 @@
 /* #region Начало вспомогательных классов */
 
-.shadow-decor {
+.shadow-text {
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
@@ -29,12 +29,12 @@
   min-block-size: 100vh;
 }
 
-.decorated-zone {
+.decorated-area {
   position: relative;
 }
 
-.decorated-zone::before,
-.decorated-zone::after {
+.decorated-area::before,
+.decorated-area::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -42,14 +42,14 @@
   block-size: 25px;
 }
 
-.decorated-zone::before {
+.decorated-area::before {
   border-inline-end: 1px solid var(--secondary-color, #ff0070);
   border-block-start: 1px solid var(--secondary-color, #ff0070);
   inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
-.decorated-zone::after {
+.decorated-area::after {
   border-inline-start: 1px solid var(--secondary-color, #ff0070);
   border-block-end: 1px solid var(--secondary-color, #ff0070);
   inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
@@ -72,7 +72,7 @@
   outline: 1px solid currentColor;
 }
 
-.rec-decor {
+.record-icon {
   position: absolute;
   z-index: -1;
   visibility: var(--rec-decor-visibility, visible);
@@ -83,13 +83,13 @@
   inset-block-start: 10px;
 }
 
-.rec-decor::before {
+.record-icon::before {
   content: "REC";
   color: var(--accent-color, #ff0070);
   line-height: 24px;
 }
 
-.rec-decor::after {
+.record-icon::after {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -114,7 +114,7 @@
   line-height: inherit;
 }
 
-.title-decor {
+.title-decorated {
   color: var(--highlight-color, #000028);
   background: var(--accent-color, #ff0070);
 }
@@ -128,7 +128,7 @@
   gap: 10px;
 }
 
-.section-how__title {
+.section-how-title {
   margin-block-end: 20px;
 }
 
@@ -147,7 +147,7 @@
   gap: 10px;
 }
 
-.gallery-list__item-img {
+.gallery-img {
   display: block;
   object-fit: cover;
   object-position: center;
@@ -163,18 +163,18 @@
   align-items: start;
 }
 
-.header__theme-menu {
+.theme-menu {
   justify-self: end;
   margin-block: 65px;
 }
 
-.header__theme-menu-list {
+.theme-menu-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.header__theme-menu-button {
+.theme-menu-button {
   border: 1px solid transparent;
   padding: 2px 12px;
   color: var(--secondary-color, #ff0070);
@@ -184,25 +184,25 @@
   cursor: pointer;
 }
 
-.header__theme-menu-button_active {
+.theme-menu-button-active {
   border-color: currentColor;
   cursor: default;
   pointer-events: none;
 }
 
-.header__theme-menu-button:hover {
+.theme-menu-button:hover {
   border-color: var(--secondary-color-o-40, #ff007040);
 }
 
-.header__theme-menu-button:focus {
+.theme-menu-button:focus {
   outline: 0;
 }
 
-.header__theme-menu-button:focus-visible {
+.theme-menu-button:focus-visible {
   border-block-end-color: currentColor;
 }
 
-.header__title {
+.header-title {
   margin-block: 55px;
   color: var(--highlight-color, #000028);
   font-weight: 700;
@@ -232,7 +232,7 @@
 /* #endregion Конец блока footer */
 
 @media (width >= 768px) {
-  .rec-decor {
+  .record-icon {
     inset-inline-end: 28px;
     inset-block-start: 20px;
   }
@@ -245,7 +245,7 @@
     grid-template-columns: clamp(236px, calc(100% / 3.25), 315px) 1fr;
   }
 
-  .section-what__articles-list {
+  .section-what-articles {
     grid-column-start: span 2;
   }
 
@@ -254,7 +254,7 @@
     gap: 20px;
   }
 
-  .section-how__articles-list {
+  .section-how-articles {
     grid-column-start: 2;
   }
 
@@ -263,13 +263,13 @@
     gap: 20px;
   }
 
-  .gallery-list__item:first-child,
-  .gallery-list__item:last-child {
+  .gallery-item:first-child,
+  .gallery-item:last-child {
     grid-column-start: span 2;
   }
 
-  .gallery-list__item:nth-child(2),
-  .gallery-list__item:nth-child(3) {
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3) {
     grid-row-start: span 2;
   }
 
@@ -277,12 +277,12 @@
     padding-inline-start: 0;
   }
 
-  .header__theme-menu {
+  .theme-menu {
     margin-block-start: 170px;
     margin-block-end: 70px;
   }
 
-  .header__title {
+  .header-title {
     justify-self: end;
     inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
   }
@@ -302,18 +302,18 @@
     column-gap: 30px;
   }
 
-  .section-what__articles-list {
+  .section-what-articles {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .header__theme-menu {
+  .theme-menu {
     justify-self: center;
     margin-inline-start: 20px;
     margin-block-start: 0;
     margin-block-end: 215px;
   }
 
-  .header__theme-menu-list {
+  .theme-menu-list {
     flex-direction: row;
   }
 }
